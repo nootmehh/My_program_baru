@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Edukasi Gunung Meletus</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+font-family:Fredoka, sans-serif;
+margin:0;
+background:linear-gradient(#ffd6d6,#fff5f5);
+text-align:center;
+overflow-x:hidden;
+}
+
+/* ===== HEADER ===== */
+
+header{
+background:#ff6b6b;
+color:white;
+padding:20px;
+font-size:clamp(20px,4vw,24px);
+font-weight:bold;
+}
+
+/* ===== CONTAINER ===== */
+
+.container{
+max-width:900px;
+margin:auto;
+padding:20px;
+}
+
+/* ===== CARD ===== */
+
+.card{
+background:white;
+padding:25px;
+border-radius:15px;
+box-shadow:0 5px 15px rgba(0,0,0,.15);
+}
+
+/* ===== HOST ===== */
+
+.earth-host{
+width:150px;
+height:150px;
+margin:20px auto;
+border-radius:50%;
+background:radial-gradient(circle at 35% 35%, #4cc9f0, #0077b6);
+position:relative;
+box-shadow:0 12px 25px rgba(0,0,0,.25);
+animation:float 3s ease-in-out infinite;
+}
+
+@keyframes float{
+0%,100%{transform:translateY(0);}
+50%{transform:translateY(-12px);}
+}
+
+.face{
+position:absolute;
+top:45px;
+left:0;
+right:0;
+}
+
+.eye{
+width:16px;
+height:16px;
+background:white;
+border-radius:50%;
+position:absolute;
+}
+
+.eye.left{ left:42px; }
+.eye.right{ right:42px; }
+
+.mouth{
+width:40px;
+height:20px;
+border-bottom:4px solid white;
+border-radius:0 0 40px 40px;
+margin:22px auto;
+transition:.2s;
+}
+
+.talking{
+height:10px;
+background:white;
+border:none;
+border-radius:10px;
+}
+
+.hand{
+width:22px;
+height:55px;
+background:#4cc9f0;
+position:absolute;
+top:55px;
+border-radius:20px;
+}
+
+.left-hand{ left:-20px; }
+.right-hand{ right:-20px; }
+
+/* ===== BUBBLE ===== */
+
+.bubble{
+background:#fff;
+padding:12px 20px;
+border-radius:20px;
+display:inline-block;
+margin:15px;
+box-shadow:0 4px 10px rgba(0,0,0,.2);
+min-height:50px;
+max-width:90%;
+font-size:clamp(14px,3vw,18px);
+}
+
+/* ===== BUTTON ===== */
+
+button{
+padding:10px 18px;
+margin:6px;
+border:none;
+border-radius:10px;
+background:#ff6b6b;
+color:white;
+cursor:pointer;
+font-weight:bold;
+}
+
+button:hover{
+transform:scale(1.05);
+}
+
+/* ===== SECTION ===== */
+
+.section{
+margin:40px 0;
+padding:0 10px;
+}
+
+/* ===== VIDEO ===== */
+
+.video-section{
+margin-top:40px;
+padding:20px;
+background:#fff3f3;
+border-radius:15px;
+box-shadow:0 5px 15px rgba(0,0,0,.1);
+}
+
+.video-container video{
+width:100%;
+max-width:600px;
+border-radius:15px;
+box-shadow:0 10px 20px rgba(0,0,0,.2);
+}
+
+/* ===== BACK BUTTON ===== */
+
+.btn{
+display:inline-block;
+padding:10px 18px;
+background:#ff6b6b;
+color:white;
+text-decoration:none;
+border-radius:10px;
+margin:20px;
+}
+
+/* ===== RESPONSIVE HP ===== */
+
+@media (max-width:768px){
+
+.container{
+padding:15px;
+}
+
+.card{
+padding:20px;
+}
+
+.earth-host{
+width:110px;
+height:110px;
+}
+
+.eye.left{ left:30px; }
+.eye.right{ right:30px; }
+
+.section{
+margin:30px 0;
+}
+
+button{
+width:45%;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>🌋 Edukasi Gunung Meletus</header>
+
+<div class="container">
+
+<div class="card">
+
+<div class="earth-host">
+<div class="face">
+<div class="eye left"></div>
+<div class="eye right"></div>
+<div class="mouth" id="mouth"></div>
+</div>
+<div class="hand left-hand"></div>
+<div class="hand right-hand"></div>
+</div>
+
+<div class="bubble" id="bubble"></div>
+
+</div>
+
+<!-- ================= MATERI ================= -->
+<div class="section">
+
+<h2>📘 Materi Pembelajaran</h2>
+<h3 id="judulMateri"></h3>
+<p id="progressMateri"></p>
+
+<div style="margin-top:15px;">
+<button onclick="prevMateri()">⬅ Sebelumnya</button>
+<button onclick="nextMateri()">Selanjutnya ➡</button>
+</div>
+
+</div>
+
+<!-- ================= MITIGASI ================= -->
+<div class="section">
+<h2>🛑 Cara Aman Saat Gunung Meletus</h2>
+<p>
+✅ Gunakan masker<br>
+✅ Ikuti jalur evakuasi<br>
+✅ Menjauh dari area gunung<br>
+✅ Dengarkan informasi resmi
+</p>
+</div>
+
+<!-- ================= VIDEO ================= -->
+<div class="video-section">
+<h2>🎥 Studi Kasus: Letusan Gunung Semeru</h2>
+
+<p>Dokumentasi letusan Gunung Semeru di Indonesia.</p>
+
+<div class="video-container">
+<video controls>
+<source src="semeru 2025.mp4" type="video/mp4">
+</video>
+</div>
+
+</div>
+
+<a href="belajar.html" class="btn">⬅ Kembali</a>
+
+</div>
+
+<script>
+
+/* ================= DATA MATERI ================= */
+const materiData = [
+{
+judul:"Apa itu Gunung Meletus?",
+isi:"Gunung meletus adalah peristiwa keluarnya magma dari dalam bumi akibat tekanan gas yang tinggi."
+},
+{
+judul:"Proses Terjadi",
+isi:"Magma naik melalui pipa vulkanik menuju permukaan dan keluar sebagai lava."
+},
+{
+judul:"Dampak Letusan",
+isi:"Letusan menghasilkan abu vulkanik, lava, awan panas, serta kerusakan lingkungan."
+},
+{
+judul:"Mitigasi Bencana",
+isi:"Mitigasi adalah upaya mengurangi risiko sebelum bencana terjadi seperti jalur evakuasi."
+},
+{
+judul:"Tanda Gunung Aktif",
+isi:"Tanda gunung akan meletus antara lain gempa kecil, suara gemuruh, asap tebal, dan suhu meningkat."
+}
+];
+
+let currentIndex = 0;
+
+/* ================= TYPE EFFECT ================= */
+function typeText(text){
+let bubble=document.getElementById("bubble");
+let mouth=document.getElementById("mouth");
+bubble.innerHTML="";
+let i=0;
+
+let typing=setInterval(()=>{
+bubble.innerHTML+=text.charAt(i);
+mouth.classList.add("talking");
+
+setTimeout(()=>{
+mouth.classList.remove("talking");
+},120);
+
+i++;
+
+if(i>=text.length){
+clearInterval(typing);
+mouth.classList.remove("talking");
+}
+},30);
+}
+
+/* ================= LOAD MATERI ================= */
+function loadMateri(){
+document.getElementById("judulMateri").innerHTML =
+materiData[currentIndex].judul;
+
+document.getElementById("progressMateri").innerHTML =
+"Materi " + (currentIndex+1) + " / " + materiData.length;
+
+typeText(materiData[currentIndex].isi);
+}
+
+/* ================= NAVIGASI ================= */
+function nextMateri(){
+if(currentIndex < materiData.length-1){
+currentIndex++;
+loadMateri();
+}
+}
+
+function prevMateri(){
+if(currentIndex > 0){
+currentIndex--;
+loadMateri();
+}
+}
+
+/* ================= AUTO LOAD ================= */
+loadMateri();
+
+</script>
+
+</body>
+</html>

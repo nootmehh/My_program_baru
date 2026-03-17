@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Profil Pengembang</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+margin:0;
+font-family:'Fredoka', sans-serif;
+background:linear-gradient(to bottom,#87CEEB,#e0f7ff);
+padding:20px;
+}
+
+/* ===== TOMBOL KEMBALI ===== */
+
+.back-btn{
+position:absolute;
+top:15px;
+left:15px;
+background:white;
+padding:8px 14px;
+border-radius:10px;
+text-decoration:none;
+color:#333;
+font-weight:600;
+box-shadow:0 4px 10px rgba(0,0,0,0.2);
+transition:0.3s;
+font-size:14px;
+}
+
+.back-btn:hover{
+transform:scale(1.05);
+}
+
+/* ===== CONTAINER ===== */
+
+.container{
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+/* ===== CARD PROFIL ===== */
+
+.profile-card{
+background:white;
+max-width:750px;
+width:100%;
+padding:40px;
+border-radius:25px;
+box-shadow:0 15px 35px rgba(0,0,0,0.2);
+animation:fadeIn 1s ease;
+
+display:flex;
+align-items:center;
+gap:40px;
+flex-wrap:wrap;
+justify-content:center;
+}
+
+/* ===== FOTO ===== */
+
+.profile-img{
+width:180px;
+height:180px;
+border-radius:50%;
+object-fit:cover;
+border:6px solid #38bdf8;
+
+animation:float 3s ease-in-out infinite;
+transition:0.4s;
+}
+
+.profile-img:hover{
+transform:scale(1.08);
+box-shadow:0 0 25px #38bdf8;
+}
+
+/* animasi melayang */
+
+@keyframes float{
+0%{ transform:translateY(0px); }
+50%{ transform:translateY(-12px); }
+100%{ transform:translateY(0px); }
+}
+
+/* ===== DATA PROFIL ===== */
+
+.profile-info{
+flex:1;
+min-width:250px;
+}
+
+.title{
+font-size:26px;
+font-weight:600;
+color:#0c4a6e;
+margin-bottom:20px;
+text-align:left;
+}
+
+.info{
+font-size:18px;
+color:#0369a1;
+margin:10px 0;
+line-height:1.7;
+}
+
+.label{
+font-weight:600;
+color:#0c4a6e;
+}
+
+/* animasi muncul */
+
+@keyframes fadeIn{
+from{
+opacity:0;
+transform:translateY(40px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+/* ===== RESPONSIVE HP ===== */
+
+@media (max-width:600px){
+
+.profile-card{
+flex-direction:column;
+text-align:center;
+padding:30px 20px;
+}
+
+.profile-img{
+width:130px;
+height:130px;
+}
+
+.title{
+text-align:center;
+font-size:22px;
+}
+
+.info{
+font-size:16px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<a href="index.html" class="back-btn">⬅ Keluar</a>
+
+<div class="container">
+
+<div class="profile-card">
+
+<img src="fachri.jpg" class="profile-img">
+
+<div class="profile-info">
+
+<div class="title">Profil Mahasiswa</div>
+
+<div class="info">
+<span class="label">Nama Mahasiswa :</span> Fachri Malaya
+</div>
+
+<div class="info">
+<span class="label">NIM :</span> 19220944
+</div>
+
+<div class="info">
+<span class="label">Program Studi :</span> Sistem Informasi
+</div>
+
+<div class="info">
+<span class="label">Fakultas :</span> Teknik Informatika
+</div>
+
+<div class="info">
+<span class="label">Universitas :</span> Bina Sarana Informatika
+</div>
+
+<div class="info">
+<span class="label">Tahun :</span> 2026
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pilih Quiz</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+margin:0;
+font-family:'Fredoka', sans-serif;
+background:linear-gradient(to bottom,#87CEEB,#e0f7ff);
+overflow-x:hidden; /* hanya cegah scroll samping */
+}
+
+/* ===== TOMBOL KEMBALI ===== */
+
+.back-btn{
+position:absolute;
+top:20px;
+left:20px;
+background:white;
+padding:10px 18px;
+border-radius:12px;
+text-decoration:none;
+color:#333;
+font-weight:600;
+box-shadow:0 4px 10px rgba(0,0,0,0.2);
+transition:0.3s;
+font-size:14px;
+}
+
+.back-btn:hover{
+transform:scale(1.05);
+}
+
+/* ===== CONTAINER ===== */
+
+.container{
+min-height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:40px 20px;
+}
+
+/* ===== JUDUL ===== */
+
+h1{
+color:#0c4a6e;
+font-size:clamp(26px,5vw,38px);
+margin-bottom:10px;
+}
+
+.subtitle{
+color:#0369a1;
+margin-bottom:40px;
+font-size:clamp(14px,3vw,18px);
+}
+
+/* ===== GRID QUIZ ===== */
+
+.quiz-grid{
+display:grid;
+grid-template-columns:repeat(2,250px);
+gap:30px;
+}
+
+/* ===== CARD QUIZ ===== */
+
+.quiz-card{
+background:white;
+padding:30px;
+border-radius:20px;
+text-decoration:none;
+color:#333;
+box-shadow:0 10px 20px rgba(0,0,0,0.15);
+transition:0.3s;
+width:250px;
+}
+
+.quiz-card:hover{
+transform:translateY(-8px) scale(1.05);
+box-shadow:0 15px 30px rgba(0,0,0,0.25);
+}
+
+/* ICON */
+
+.icon{
+font-size:50px;
+margin-bottom:15px;
+}
+
+/* TEXT */
+
+.quiz-title{
+font-size:20px;
+font-weight:600;
+}
+
+/* ===== CLOUD ANIMATION ===== */
+
+.cloud{
+position:absolute;
+top:50px;
+width:150px;
+opacity:0.8;
+animation:gerakAwan 40s linear infinite;
+}
+
+.cloud2{
+top:120px;
+animation-duration:55s;
+}
+
+@keyframes gerakAwan{
+from{ transform:translateX(-200px);}
+to{ transform:translateX(120vw);}
+}
+
+/* ===== RESPONSIVE HP ===== */
+
+@media (max-width:768px){
+
+.quiz-grid{
+grid-template-columns:1fr;
+gap:20px;
+}
+
+.quiz-card{
+width:90%;
+max-width:300px;
+padding:25px;
+}
+
+.icon{
+font-size:40px;
+}
+
+.quiz-title{
+font-size:18px;
+}
+
+.back-btn{
+top:15px;
+left:15px;
+font-size:13px;
+padding:8px 14px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- Tombol kembali -->
+<a href="index.html" class="back-btn">⬅ Keluar</a>
+
+<!-- Awan -->
+<img src="https://cdn-icons-png.flaticon.com/512/414/414825.png" class="cloud">
+<img src="https://cdn-icons-png.flaticon.com/512/414/414825.png" class="cloud cloud2">
+
+<div class="container">
+
+    <h1>🎮 Pilih Quiz Game</h1>
+    <div class="subtitle">Yuk uji pengetahuan bencana alam kamu!</div>
+
+    <div class="quiz-grid">
+
+        <a href="quiz_GM.html" class="quiz-card">
+            <div class="icon">🌋</div>
+            <div class="quiz-title">Gunung Meletus</div>
+        </a>
+
+        <a href="quiz_T.html" class="quiz-card">
+            <div class="icon">🌊</div>
+            <div class="quiz-title">Tsunami</div>
+        </a>
+
+       <a href="quiz_B.html" class="quiz-card">
+            <div class="icon">🌧️</div>
+            <div class="quiz-title">Banjir</div>
+        
+        </a>
+
+        <a href="quiz_GB.html" class="quiz-card">
+            <div class="icon">🌎</div>
+            <div class="quiz-title">Gempa Bumi</div>
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+</html>

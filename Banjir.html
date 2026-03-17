@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Edukasi Banjir</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+font-family:Fredoka, sans-serif;
+margin:0;
+background:linear-gradient(#dff6ff,#f5fbff);
+text-align:center;
+overflow-x:hidden;
+}
+
+/* HUJAN */
+.rain{
+position:fixed;
+width:2px;
+height:18px;
+background:#90e0ef;
+animation:fall linear infinite;
+opacity:.6;
+}
+
+@keyframes fall{
+from{transform:translateY(-100px);}
+to{transform:translateY(100vh);}
+}
+
+header{
+background:#0096c7;
+color:white;
+padding:18px;
+font-size:24px;
+font-weight:bold;
+}
+
+.container{
+max-width:900px;
+margin:auto;
+padding:20px;
+width:95%;
+}
+
+.card{
+background:white;
+padding:25px;
+border-radius:15px;
+box-shadow:0 5px 15px rgba(0,0,0,.15);
+}
+
+/* HOST */
+.earth-host{
+width:150px;
+height:150px;
+margin:20px auto;
+border-radius:50%;
+background:radial-gradient(circle at 35% 35%, #48cae4, #0077b6);
+position:relative;
+box-shadow:0 12px 25px rgba(0,0,0,.25);
+animation:float 3s ease-in-out infinite;
+}
+
+@keyframes float{
+0%,100%{transform:translateY(0);}
+50%{transform:translateY(-12px);}
+}
+
+.face{
+position:absolute;
+top:45px;
+left:0;
+right:0;
+}
+
+.eye{
+width:16px;
+height:16px;
+background:white;
+border-radius:50%;
+position:absolute;
+}
+
+.eye.left{ left:42px; }
+.eye.right{ right:42px; }
+
+.mouth{
+width:40px;
+height:20px;
+border-bottom:4px solid white;
+border-radius:0 0 40px 40px;
+margin:22px auto;
+transition:.2s;
+}
+
+.talking{
+height:10px;
+background:white;
+border:none;
+border-radius:10px;
+}
+
+.hand{
+width:22px;
+height:55px;
+background:#48cae4;
+position:absolute;
+top:55px;
+border-radius:20px;
+}
+
+.left-hand{ left:-20px; }
+.right-hand{ right:-20px; }
+
+.bubble{
+background:#fff;
+padding:12px 18px;
+border-radius:20px;
+display:inline-block;
+margin:15px;
+box-shadow:0 4px 10px rgba(0,0,0,.2);
+min-height:50px;
+max-width:95%;
+}
+
+button{
+padding:10px 18px;
+margin:6px;
+border:none;
+border-radius:10px;
+background:#0096c7;
+color:white;
+cursor:pointer;
+font-weight:bold;
+}
+
+button:hover{
+transform:scale(1.05);
+}
+
+.section{
+margin:40px 0;
+}
+
+.video-section{
+margin-top:40px;
+padding:20px;
+background:#e3f7ff;
+border-radius:15px;
+box-shadow:0 5px 15px rgba(0,0,0,.1);
+}
+
+.video-container video{
+width:100%;
+max-width:600px;
+border-radius:15px;
+box-shadow:0 10px 20px rgba(0,0,0,.2);
+}
+
+.btn{
+display:inline-block;
+padding:10px 18px;
+background:#0096c7;
+color:white;
+text-decoration:none;
+border-radius:10px;
+margin:20px;
+}
+
+/* ================= RESPONSIVE HP ================= */
+
+@media (max-width:600px){
+
+header{
+font-size:20px;
+padding:15px;
+}
+
+.earth-host{
+width:120px;
+height:120px;
+}
+
+.eye{
+width:12px;
+height:12px;
+}
+
+.mouth{
+width:30px;
+}
+
+.hand{
+height:45px;
+}
+
+.section{
+margin:25px 0;
+}
+
+button{
+width:90%;
+max-width:250px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>🌧️ Edukasi Banjir</header>
+
+<div id="rain-container"></div>
+
+<div class="container">
+
+<div class="card">
+
+<div class="earth-host">
+<div class="face">
+<div class="eye left"></div>
+<div class="eye right"></div>
+<div class="mouth" id="mouth"></div>
+</div>
+<div class="hand left-hand"></div>
+<div class="hand right-hand"></div>
+</div>
+
+<div class="bubble" id="bubble"></div>
+
+</div>
+
+<div class="section">
+
+<h2>📘 Materi Pembelajaran</h2>
+<h3 id="judulMateri"></h3>
+<p id="progressMateri"></p>
+
+<div style="margin-top:15px;">
+<button onclick="prevMateri()">⬅ Sebelumnya</button>
+<button onclick="nextMateri()">Selanjutnya ➡</button>
+</div>
+
+</div>
+
+<div class="section">
+<h2>🛑 Cara Aman Saat Banjir</h2>
+<p>
+✅ Matikan listrik<br>
+✅ Pindah ke tempat tinggi<br>
+✅ Hindari arus deras<br>
+✅ Siapkan tas siaga
+</p>
+</div>
+
+<div class="video-section">
+<h2>🎥 Studi Kasus: Banjir di Jakarta</h2>
+<p>Dokumentasi kejadian banjir besar di Jakarta.</p>
+
+<div class="video-container">
+<video controls>
+<source src="banjir sumatra 2025.mp4" type="video/mp4">
+</video>
+</div>
+
+</div>
+
+<a href="belajar.html" class="btn">⬅ Kembali</a>
+
+</div>
+
+<script>
+
+/* HUJAN */
+const rainContainer=document.getElementById("rain-container");
+for(let i=0;i<80;i++){
+let drop=document.createElement("div");
+drop.className="rain";
+drop.style.left=Math.random()*100+"%";
+drop.style.animationDuration=(0.5+Math.random())+"s";
+drop.style.animationDelay=Math.random()+"s";
+rainContainer.appendChild(drop);
+}
+
+/* DATA MATERI */
+const materiData = [
+{judul:"Apa itu Banjir?",isi:"Banjir adalah peristiwa meluapnya air hingga menggenangi daratan yang biasanya kering."},
+{judul:"Penyebab Banjir",isi:"Banjir terjadi akibat hujan deras, saluran air tersumbat, berkurangnya daerah resapan, dan pembangunan yang tidak terencana."},
+{judul:"Proses Terjadinya",isi:"Curah hujan tinggi menyebabkan sungai meluap dan air tidak terserap tanah sehingga menggenangi permukiman."},
+{judul:"Dampak Banjir",isi:"Banjir dapat merusak rumah, fasilitas umum, menyebabkan penyakit, dan mengganggu aktivitas masyarakat."},
+{judul:"Mitigasi Banjir",isi:"Mitigasi dilakukan dengan menjaga kebersihan saluran air, membuat sumur resapan, serta sistem peringatan dini."}
+];
+
+let currentIndex=0;
+
+function typeText(text){
+let bubble=document.getElementById("bubble");
+let mouth=document.getElementById("mouth");
+bubble.innerHTML="";
+let i=0;
+
+let typing=setInterval(()=>{
+bubble.innerHTML+=text.charAt(i);
+mouth.classList.add("talking");
+
+setTimeout(()=>{
+mouth.classList.remove("talking");
+},120);
+
+i++;
+
+if(i>=text.length){
+clearInterval(typing);
+mouth.classList.remove("talking");
+}
+},30);
+}
+
+function loadMateri(){
+document.getElementById("judulMateri").innerHTML=materiData[currentIndex].judul;
+document.getElementById("progressMateri").innerHTML="Materi "+(currentIndex+1)+" / "+materiData.length;
+typeText(materiData[currentIndex].isi);
+}
+
+function nextMateri(){
+if(currentIndex < materiData.length-1){
+currentIndex++;
+loadMateri();
+}
+}
+
+function prevMateri(){
+if(currentIndex > 0){
+currentIndex--;
+loadMateri();
+}
+}
+
+loadMateri();
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Edukasi Bencana Alam Anak</title>
+
+<!-- FONT ANAK -->
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Fredoka', sans-serif;
+}
+
+body{
+background: linear-gradient(180deg,#a0e9ff,#ffffff);
+overflow-x:hidden;
+}
+
+/* ===== HEADER ===== */
+
+header{
+text-align:center;
+padding:40px 20px;
+color:#fff;
+background:linear-gradient(45deg,#00b4ff,#4facfe);
+animation:fadeDown 1s ease;
+position:relative;
+}
+
+header h1{
+font-size:clamp(24px,5vw,40px);
+}
+
+header p{
+margin-top:10px;
+font-size:clamp(14px,3vw,18px);
+}
+
+/* ===== EARTH HOST ===== */
+
+.earth-host{
+display:flex;
+align-items:center;
+justify-content:center;
+flex-direction:column;
+margin-top:30px;
+padding:0 15px;
+}
+
+/* BADAN BUMI */
+
+.earth{
+width:140px;
+height:140px;
+background:radial-gradient(circle at 30% 30%, #4facfe, #0077b6);
+border-radius:50%;
+position:relative;
+animation:bounce 2s ease-in-out infinite;
+}
+
+/* WAJAH */
+
+.face{
+position:absolute;
+width:100%;
+top:45px;
+text-align:center;
+}
+
+.eye{
+width:10px;
+height:10px;
+background:#000;
+border-radius:50%;
+display:inline-block;
+margin:0 10px;
+animation:blink 4s infinite;
+}
+
+.smile{
+width:30px;
+height:15px;
+border-bottom:4px solid black;
+border-radius:0 0 20px 20px;
+margin:5px auto;
+}
+
+/* TANGAN */
+
+.arm{
+width:18px;
+height:60px;
+background:#4facfe;
+position:absolute;
+top:50px;
+border-radius:20px;
+}
+
+.left-arm{
+left:-20px;
+transform-origin:top;
+animation:wave 2s infinite;
+}
+
+.right-arm{
+right:-20px;
+}
+
+/* KAKI */
+
+.leg{
+width:18px;
+height:45px;
+background:#333;
+position:absolute;
+bottom:-35px;
+border-radius:20px;
+}
+
+.left-leg{
+left:35px;
+animation:walk 1s infinite alternate;
+}
+
+.right-leg{
+right:35px;
+animation:walk 1s infinite alternate-reverse;
+}
+
+/* BALON KATA */
+
+.speech{
+margin-top:15px;
+background:white;
+padding:10px 18px;
+border-radius:20px;
+box-shadow:0 5px 10px rgba(0,0,0,0.15);
+font-size:14px;
+animation:fadeTalk 3s infinite;
+max-width:90%;
+text-align:center;
+}
+
+/* ===== CONTENT ===== */
+
+.container{
+padding:40px 20px;
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:25px;
+}
+
+.card{
+background:#fff;
+width:260px;
+max-width:90%;
+border-radius:20px;
+padding:20px;
+text-align:center;
+box-shadow:0 8px 20px rgba(0,0,0,0.1);
+transition:0.4s;
+animation:fadeUp 1s ease;
+}
+
+.card:hover{
+transform:translateY(-10px) scale(1.05);
+}
+
+.card img{
+width:100px;
+max-width:100%;
+margin-bottom:15px;
+}
+
+.card h3{
+color:#ff7b00;
+}
+
+.card p{
+font-size:14px;
+margin:10px 0;
+}
+
+.btn{
+display:inline-block;
+padding:10px 18px;
+background:#ffb703;
+border-radius:20px;
+text-decoration:none;
+color:#fff;
+font-weight:bold;
+transition:.3s;
+}
+
+.btn:hover{
+background:#fb8500;
+}
+
+/* ===== FOOTER ===== */
+
+footer{
+text-align:center;
+padding:20px;
+background:#4facfe;
+color:white;
+margin-top:40px;
+font-size:14px;
+}
+
+/* ===== MUSIC BUTTON ===== */
+
+#musicBtn{
+position:fixed;
+bottom:20px;
+right:20px;
+padding:12px 18px;
+border:none;
+border-radius:30px;
+background:#ffb703;
+color:white;
+font-weight:bold;
+cursor:pointer;
+box-shadow:0 5px 10px rgba(0,0,0,0.2);
+}
+
+/* ===== BUTTON KEMBALI DASHBOARD ===== */
+
+.back-btn{
+position:absolute;
+top:20px;
+left:20px;
+background:white;
+color:#0077b6;
+border:none;
+padding:8px 15px;
+border-radius:25px;
+font-weight:bold;
+cursor:pointer;
+transition:0.3s;
+box-shadow:0 4px 12px rgba(0,0,0,0.15);
+text-decoration:none;
+font-size:14px;
+}
+
+.back-btn:hover{
+background:#f1f1f1;
+transform:scale(1.05);
+}
+
+/* ===== RESPONSIVE HP ===== */
+
+@media (max-width:768px){
+
+header{
+padding:30px 15px;
+}
+
+.container{
+padding:30px 15px;
+gap:20px;
+}
+
+.card{
+width:100%;
+max-width:320px;
+}
+
+.earth{
+width:110px;
+height:110px;
+}
+
+.eye{
+margin:0 6px;
+}
+
+.speech{
+font-size:13px;
+}
+
+.back-btn{
+top:10px;
+left:10px;
+font-size:12px;
+padding:6px 12px;
+}
+
+}
+
+/* ===== ANIMATION ===== */
+
+@keyframes fadeDown{
+from{opacity:0; transform:translateY(-40px);}
+to{opacity:1; transform:translateY(0);}
+}
+
+@keyframes fadeUp{
+from{opacity:0; transform:translateY(40px);}
+to{opacity:1; transform:translateY(0);}
+}
+
+@keyframes bounce{
+0%,100%{ transform:translateY(0); }
+50%{ transform:translateY(-10px); }
+}
+
+@keyframes wave{
+0%{ transform:rotate(0deg); }
+50%{ transform:rotate(-35deg); }
+100%{ transform:rotate(0deg); }
+}
+
+@keyframes walk{
+from{ transform:rotate(10deg); }
+to{ transform:rotate(-10deg); }
+}
+
+@keyframes blink{
+0%,95%,100%{ transform:scaleY(1); }
+97%{ transform:scaleY(0.1); }
+}
+
+@keyframes fadeTalk{
+0%,100%{ opacity:1; }
+50%{ opacity:.7; }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ===== BACKSOUND ===== -->
+<audio id="backsound" loop>
+    <source src="audio1.mp3" type="audio/mpeg">
+</audio>
+
+<!-- ===== BUMI HOST ===== -->
+<div class="earth-host">
+    <div class="earth">
+        <div class="face">
+            <div class="eye left"></div>
+            <div class="eye right"></div>
+            <div class="smile"></div>
+        </div>
+
+        <!-- tangan -->
+        <div class="arm left-arm"></div>
+        <div class="arm right-arm"></div>
+
+        <!-- kaki -->
+        <div class="leg left-leg"></div>
+        <div class="leg right-leg"></div>
+    </div>
+
+    <div class="speech">
+        Halo teman! Yuk belajar bencana alam! 🌎
+    </div>
+</div>
+
+
+<header>
+
+<a href="index.html" class="back-btn">
+⬅ Keluar
+</a>
+
+<h1>🌎 Edukasi Bencana Alam</h1>
+<p>Belajar Aman dari Bencana dengan Cara Seru!</p>
+
+</header>
+<section class="container">
+
+    <div class="card">
+        <img src="gn_meletus.jpg">
+        <h3>Gunung Meletus</h3>
+        <p></p>
+        <a href="Gunung_Meletus.html" class="btn">Belajar</a>
+    </div>
+
+    <div class="card">
+        <img src="Tsunami.jpg">
+        <h3>Tsunami</h3>
+        <p></p>
+        <a href="Tsunami.html" class="btn">Belajar</a>
+    </div>
+
+    <div class="card">
+        <img src="banjir.jpg">
+        <h3>Banjir</h3>
+        <p></p>
+        <a href="Banjir.html" class="btn">Belajar</a>
+    </div>
+
+    <div class="card">
+        <img src="gempa.jpg">
+        <h3>Gempa Bumi</h3>
+        <p></p>
+        <a href="gempa_Bumi.html" class="btn">Belajar</a>
+    </div>
+
+</section>
+
+<footer>
+    <p>© 2026 Website Edukasi Bencana Alam | Fachri Malaya ✨</p>
+</footer>
+
+<!-- BUTTON MUSIC -->
+<button id="musicBtn">🎵 Musik OFF</button>
+
+<!-- ===== SCRIPT BACKSOUND ===== -->
+<script>
+const audio = document.getElementById("backsound");
+const btn = document.getElementById("musicBtn");
+
+let started = false;
+
+// autoplay setelah klik pertama
+document.addEventListener("click", function () {
+    if(!started){
+        audio.play();
+        btn.textContent = "🔊 Musik ON";
+        started = true;
+    }
+}, { once:true });
+
+// tombol ON/OFF
+btn.addEventListener("click", () => {
+    if(audio.paused){
+        audio.play();
+        btn.textContent = "🔊 Musik ON";
+    } else {
+        audio.pause();
+        btn.textContent = "🔇 Musik OFF";
+    }
+});
+</script>
+
+</body>
+</html>

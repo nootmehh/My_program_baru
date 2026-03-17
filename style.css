@@ -1,0 +1,87 @@
+body{
+    margin:0;
+    font-family:'Fredoka', sans-serif;
+    background:linear-gradient(#a0e9ff,#ffffff);
+}
+
+/* HEADER */
+header{
+    text-align:center;
+    padding:35px;
+    color:white;
+    animation:turun 1s ease;
+}
+
+header h1{
+    margin:0;
+    font-size:36px;
+}
+
+/* CONTAINER */
+.container{
+    max-width:900px;
+    margin:auto;
+    padding:40px;
+}
+
+/* CARD EDUKASI */
+.card{
+    background:white;
+    border-radius:25px;
+    padding:30px;
+    text-align:center;
+    box-shadow:0 10px 25px rgba(0,0,0,0.15);
+    animation:muncul 1s ease;
+}
+
+.card img{
+    width:150px;
+    animation:lompat 2s infinite;
+}
+
+.card p{
+    font-size:18px;
+    line-height:1.6;
+}
+
+/* BUTTON */
+.btn{
+    display:inline-block;
+    margin:10px;
+    padding:12px 22px;
+    background:#ffb703;
+    color:white;
+    text-decoration:none;
+    border-radius:30px;
+    font-weight:bold;
+    transition:.3s;
+}
+
+.btn:hover{
+    background:#fb8500;
+    transform:scale(1.1);
+}
+
+/* ANIMASI */
+@keyframes muncul{
+    from{opacity:0; transform:translateY(40px);}
+    to{opacity:1; transform:translateY(0);}
+}
+
+@keyframes turun{
+    from{opacity:0; transform:translateY(-40px);}
+    to{opacity:1; transform:translateY(0);}
+}
+
+@keyframes lompat{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-10px);}
+}
+
+footer{
+    text-align:center;
+    padding:20px;
+    background:#4facfe;
+    color:white;
+    margin-top:40px;
+}
